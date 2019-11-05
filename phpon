@@ -1,0 +1,14 @@
+#!/bin/bash
+
+RED='\033[0;31m'
+GREEN='\033[0;32m'
+NC='\033[0m' # No Color
+
+if [[ $EUID = 0 ]]; then
+	mv /bin/php /bin/phpold
+	cp /usr/local/bin/php72 /bin/php
+	echo -e "${GREEN}The PHP cli new version updated!${NC}"
+else
+    echo -e "${RED}Please run sudo!${NC}"
+fi
+
